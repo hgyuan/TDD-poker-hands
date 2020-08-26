@@ -40,7 +40,7 @@ public class SameKindCardComparatorTest {
     //given
     int[] blackCardValues = {3, 4, 6, 7, 8};
     int[] whiteCardValues = {3, 4, 5, 7, 8};
-    CardType cardType = CardType.HIGHT_CARD;
+    CardType cardType = CardType.HIGH_CARD;
     //when
     SameKindCardComparator sameKindCardComparator = new SameKindCardComparator();
     String result = sameKindCardComparator.compare(cardType, blackCardValues, whiteCardValues);

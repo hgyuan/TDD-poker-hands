@@ -13,24 +13,22 @@ public class CardTypeDetector {
       return CardType.FULL_HOUSE;
     } else if (isFlush(card)) {
       return CardType.FLUSH;
+    } else if (isStraight(card)){
+      return CardType.STRAIGHT;
     }
-    return CardType.HIGHT_CARD;
+    return CardType.HIGH_CARD;
   }
 
   private boolean isStraightFlush(String[] card) {
-    int[] cardValues = CardConvertor.convertCardValueToNumber(card);
-    Arrays.sort(cardValues);
-    for (int i = 1; i < cardValues.length; i++) {
-      if (cardValues[i] - 1 != cardValues[i - 1]) {
-        return false;
-      }
+    if (!isStraight(card)){
+      return false;
     }
-    Character[] cardSuit = CardConvertor.convertCardSuitToChar(card);
+    Character[] cardSuit = CardConverter.convertCardSuitToChar(card);
     return Arrays.stream(cardSuit).distinct().count() == 1;
   }
 
   private boolean isFourOfAKind(String[] card) {
-    int[] cardValues = CardConvertor.convertCardValueToNumber(card);
+    int[] cardValues = CardConverter.convertCardValueToNumber(card);
     Arrays.sort(cardValues);
     if(Arrays.stream(cardValues).distinct().count() != 2) {
       return false;
@@ -40,7 +38,7 @@ public class CardTypeDetector {
   }
 
   private boolean isFullHouse(String[] card) {
-    int[] cardValues = CardConvertor.convertCardValueToNumber(card);
+    int[] cardValues = CardConverter.convertCardValueToNumber(card);
     Arrays.sort(cardValues);
     if(Arrays.stream(cardValues).distinct().count() != 2) {
       return false;
@@ -49,7 +47,18 @@ public class CardTypeDetector {
   }
 
   private boolean isFlush(String[] card) {
-    Character[] cardSuit = CardConvertor.convertCardSuitToChar(card);
+    Character[] cardSuit = CardConverter.convertCardSuitToChar(card);
     return Arrays.stream(cardSuit).distinct().count() == 1;
+  }
+
+  private boolean isStraight(String[] card){
+    int[] cardValues = CardConverter.convertCardValueToNumber(card);
+    Arrays.sort(cardValues);
+    for (int i = 1; i < cardValues.length; i++) {
+      if (cardValues[i] - 1 != cardValues[i - 1]) {
+        return false;
+      }
+    }
+    return true;
   }
 }

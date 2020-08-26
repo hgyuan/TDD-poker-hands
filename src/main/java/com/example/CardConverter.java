@@ -3,7 +3,7 @@ package com.example;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CardConvertor {
+public class CardConverter {
 
   private static Map<Character, Integer> map;
 
@@ -11,7 +11,7 @@ public class CardConvertor {
     initMap();
   }
 
-  public CardConvertor() {
+  public CardConverter() {
 
   }
 

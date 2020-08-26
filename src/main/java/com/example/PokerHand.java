@@ -23,8 +23,8 @@ public class PokerHand {
       return WHITE_WINS;
     }
 
-    int[] blackNumbers = CardConvertor.convertCardValueToNumber(black);
-    int[] whiteNumbers = CardConvertor.convertCardValueToNumber(white);
+    int[] blackNumbers = CardConverter.convertCardValueToNumber(black);
+    int[] whiteNumbers = CardConverter.convertCardValueToNumber(white);
 
     Arrays.sort(blackNumbers);
     Arrays.sort(whiteNumbers);
