@@ -47,7 +47,7 @@ public class SameKindCardComparator {
     } else if (getPairNumber(blackCardValue) < getPairNumber(whiteCardValue)) {
       return WHITE_WINS;
     }
-    return TIE;
+    return defaultCompare(blackCardValue, whiteCardValue);
   }
 
   private int getPairNumber(int[] cardValue) {
