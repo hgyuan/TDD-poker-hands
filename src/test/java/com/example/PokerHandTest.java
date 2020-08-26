@@ -3,6 +3,7 @@ package com.example;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static com.example.Constant.*;
 
 public class PokerHandTest {
 
@@ -21,7 +22,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "white wins");
+    assertEquals(result, WHITE_WINS);
   }
 
   @Test
@@ -34,7 +35,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -47,7 +48,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "tie");
+    assertEquals(result, TIE);
   }
 
   @Test
@@ -60,7 +61,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -73,7 +74,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "white wins");
+    assertEquals(result, WHITE_WINS);
   }
 
   @Test
@@ -86,7 +87,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "tie");
+    assertEquals(result, TIE);
   }
 
   @Test
@@ -99,7 +100,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -112,7 +113,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -125,7 +126,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -138,7 +139,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -151,7 +152,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -164,7 +165,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -177,7 +178,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -190,7 +191,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "white wins");
+    assertEquals(result, WHITE_WINS);
   }
 
   @Test
@@ -203,7 +204,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "tie");
+    assertEquals(result, TIE);
   }
 
   @Test
@@ -216,7 +217,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -229,7 +230,7 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "black wins");
+    assertEquals(result, BLACK_WINS);
   }
 
   @Test
@@ -242,6 +243,19 @@ public class PokerHandTest {
     String result = pokerHand.play(black, white);
 
     //then
-    assertEquals(result, "white wins");
+    assertEquals(result, WHITE_WINS);
+  }
+
+  @Test
+  public void should_return_white_wins_when_play_given_black_3C_4H_5S_6H_7C_and_white_3D_4D_5C_6C_7D() {
+    //given
+    String[] black = {"3C", "4H", "5S", "6H", "7C"};
+    String[] white = {"3D", "4D", "5C", "6C", "7D"};
+    //when
+    PokerHand pokerHand = new PokerHand();
+    String result = pokerHand.play(black, white);
+
+    //then
+    assertEquals(result, TIE);
   }
 }
