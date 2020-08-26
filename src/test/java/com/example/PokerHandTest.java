@@ -247,7 +247,7 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_white_wins_when_play_given_black_3C_4H_5S_6H_7C_and_white_3D_4D_5C_6C_7D() {
+  public void should_return_tie_when_play_given_black_3C_4H_5S_6H_7C_and_white_3D_4D_5C_6C_7D() {
     //given
     String[] black = {"3C", "4H", "5S", "6H", "7C"};
     String[] white = {"3D", "4D", "5C", "6C", "7D"};
@@ -257,5 +257,18 @@ public class PokerHandTest {
 
     //then
     assertEquals(result, TIE);
+  }
+
+  @Test
+  public void should_return_black_wins_when_play_given_black_3H_4H_5H_6H_8H_and_white_3D_4D_5C_6C_7D() {
+    //given
+    String[] black = {"3H", "4H", "5H", "6H", "8H"};
+    String[] white = {"3D", "4D", "5C", "6C", "7D"};
+    //when
+    PokerHand pokerHand = new PokerHand();
+    String result = pokerHand.play(black, white);
+
+    //then
+    assertEquals(result, BLACK_WINS);
   }
 }
