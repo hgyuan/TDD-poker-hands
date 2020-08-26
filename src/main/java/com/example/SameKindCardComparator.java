@@ -7,14 +7,15 @@ public class SameKindCardComparator {
     switch (type){
       case FOUR_OF_A_KIND:
       case FULL_HOUSE:
-        return fourOfAKindOrFullHouseCompare(blackCardValue, whiteCardValue);
+      case THREE_OF_A_KIND:
+        return fourOfAKindOrFullHouseOrThreeOfAKindCompare(blackCardValue, whiteCardValue);
       default:
         return defaultCompare(blackCardValue, whiteCardValue);
 
     }
   }
 
-  private String fourOfAKindOrFullHouseCompare(int[] blackCardValue, int[] whiteCardValue){
+  private String fourOfAKindOrFullHouseOrThreeOfAKindCompare(int[] blackCardValue, int[] whiteCardValue){
     if (blackCardValue[2] > whiteCardValue[2]){
       return BLACK_WINS;
     }
