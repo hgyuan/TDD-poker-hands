@@ -7,6 +7,8 @@ public class DetectCardType {
   public CardType detect(String[] card) {
     if (isStraightFlush(card)) {
       return CardType.STRAIGHT_FLUSH;
+    } else if (isFourOfAKind(card)) {
+      return CardType.FOUR_OF_A_KIND;
     }
     return CardType.HIGHT_CARD;
   }
@@ -21,5 +23,10 @@ public class DetectCardType {
     }
     Character[] cardSuit = CardConvertor.convertCardSuitToChar(card);
     return Arrays.stream(cardSuit).distinct().count() == 1;
+  }
+
+  private boolean isFourOfAKind(String[] card) {
+    int[] cardValues = CardConvertor.convertCardValueToNumber(card);
+    return Arrays.stream(cardValues).distinct().count() == 2;
   }
 }
