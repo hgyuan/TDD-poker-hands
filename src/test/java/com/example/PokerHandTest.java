@@ -129,9 +129,9 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_3H_3S_3D_4C_6H_and_white_2H_5D_7S_4D_6D() {
+  public void should_return_black_wins_when_play_given_black_3H_3S_3D_4C_4S_and_white_2H_5D_7S_4D_6D() {
     //given
-    String[] black = {"3H", "3D", "3S", "4C", "6H"};
+    String[] black = {"3H", "3D", "3S", "4C", "4S"};
     String[] white = {"2H", "5D", "7S", "4D", "6D"};
     //when
     PokerHand pokerHand = new PokerHand();
@@ -142,10 +142,10 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_3H_3S_3D_4C_6H_and_white_2H_2D_2S_4D_6D() {
+  public void should_return_black_wins_when_play_given_black_3H_3S_3D_4C_4H_and_white_2H_2D_2S_5D_5S() {
     //given
-    String[] black = {"3H", "3D", "3S", "4C", "6H"};
-    String[] white = {"2H", "2D", "2S", "4D", "6D"};
+    String[] black = {"3H", "3D", "3S", "4C", "4H"};
+    String[] white = {"2H", "2D", "2S", "5D", "5S"};
     //when
     PokerHand pokerHand = new PokerHand();
     String result = pokerHand.play(black, white);
@@ -155,10 +155,10 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_3H_3S_3D_3C_6H_and_white_2H_2S_2D_4C_6D() {
+  public void should_return_black_wins_when_play_given_black_3H_3S_3D_3C_6H_and_white_2H_2S_2D_4C_4D() {
     //given
     String[] black = {"3H", "3D", "3S", "3C", "6H"};
-    String[] white = {"2H", "2D", "2S", "4C", "6D"};
+    String[] white = {"2H", "2D", "2S", "4C", "4D"};
     //when
     PokerHand pokerHand = new PokerHand();
     String result = pokerHand.play(black, white);
@@ -207,9 +207,9 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_2H_3H_9H_5H_6H_and_white_2D_3D_9D_5D_6D() {
+  public void should_return_black_wins_when_play_given_black_2H_3H_9H_5H_5C_and_white_2D_3D_9D_5D_6D() {
     //given
-    String[] black = {"3C", "3H", "3S", "5H", "6H"};
+    String[] black = {"3C", "3H", "3S", "5H", "5C"};
     String[] white = {"2D", "3D", "KD", "5D", "6D"};
     //when
     PokerHand pokerHand = new PokerHand();

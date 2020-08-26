@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Arrays;
 
-public class DetectCardType {
+public class CardTypeDetector {
 
   public CardType detect(String[] card) {
     if (isStraightFlush(card)) {
@@ -31,12 +31,21 @@ public class DetectCardType {
 
   private boolean isFourOfAKind(String[] card) {
     int[] cardValues = CardConvertor.convertCardValueToNumber(card);
-    return Arrays.stream(cardValues).distinct().count() == 2;
+    Arrays.sort(cardValues);
+    if(Arrays.stream(cardValues).distinct().count() != 2) {
+      return false;
+    }
+    return cardValues[0] != cardValues[1] || cardValues[3] != cardValues[4];
+
   }
 
   private boolean isFullHouse(String[] card) {
     int[] cardValues = CardConvertor.convertCardValueToNumber(card);
-    return Arrays.stream(cardValues).distinct().count() == 3;
+    Arrays.sort(cardValues);
+    if(Arrays.stream(cardValues).distinct().count() != 2) {
+      return false;
+    }
+    return cardValues[0] == cardValues[1] && cardValues[3] == cardValues[4];
   }
 
   private boolean isFlush(String[] card) {

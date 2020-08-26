@@ -2,22 +2,25 @@ package com.example;
 
 import java.util.Arrays;
 
+import static com.example.Constant.*;
+
 public class PokerHand {
 
-  DetectCardType detectCardType = new DetectCardType();
+  CardTypeDetector cardTypeDetector = new CardTypeDetector();
+  SameKindCardComparator sameKindCardComparator = new SameKindCardComparator();
 
   public PokerHand() {
   }
 
   public String play(String[] black, String[] white) {
 
-    CardType blackCardType = detectCardType.detect(black);
-    CardType whiteCardType = detectCardType.detect(white);
+    CardType blackCardType = cardTypeDetector.detect(black);
+    CardType whiteCardType = cardTypeDetector.detect(white);
 
     if (blackCardType.getTypeNumber() > whiteCardType.getTypeNumber()) {
-      return "black wins";
+      return BLACK_WINS;
     } else if (blackCardType.getTypeNumber() < whiteCardType.getTypeNumber()) {
-      return "white wins";
+      return WHITE_WINS;
     }
 
     int[] blackNumbers = CardConvertor.convertCardValueToNumber(black);
@@ -26,13 +29,6 @@ public class PokerHand {
     Arrays.sort(blackNumbers);
     Arrays.sort(whiteNumbers);
 
-    for (int i = 4; i >= 0; i--) {
-      if (blackNumbers[i] > whiteNumbers[i]) {
-        return "black wins";
-      } else if (blackNumbers[i] < whiteNumbers[i]) {
-        return "white wins";
-      }
-    }
-    return "tie";
+    return sameKindCardComparator.compare(blackCardType, blackNumbers, whiteNumbers);
   }
 }
