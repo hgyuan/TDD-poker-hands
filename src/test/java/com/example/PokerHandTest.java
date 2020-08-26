@@ -63,4 +63,17 @@ public class PokerHandTest {
     assertEquals(result, "black wins");
   }
 
+  @Test
+  public void should_return_white_wins_when_play_given_black_2H_3H_4H_5H_6H_and_white_3H_4H_5H_6H_7H() {
+    //given
+    String[] black = {"2H", "3H", "4H", "5H", "6H"};
+    String[] white = {"3H", "4H", "5H", "6H", "7H"};
+    //when
+    PokerHand pokerHand = new PokerHand();
+    String result = pokerHand.play(black, white);
+
+    //then
+    assertEquals(result, "white wins");
+  }
+
 }
