@@ -51,10 +51,10 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_2H_3H_4H_5H_6H_and_white_2C_3H_4S_8C_AH() {
+  public void should_return_black_wins_when_play_given_black_2H_3H_4H_5H_6H_and_white_2C_3D_4S_8C_AH() {
     //given
     String[] black = {"2H", "3H", "4H", "5H", "6H"};
-    String[] white = {"2C", "3H", "4S", "8C", "AH"};
+    String[] white = {"2C", "3D", "4S", "8C", "AH"};
     //when
     PokerHand pokerHand = new PokerHand();
     String result = pokerHand.play(black, white);
@@ -116,9 +116,9 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_2H_3H_4H_5H_6H_and_white_2H_2S_2D_2C_6H() {
+  public void should_return_black_wins_when_play_given_black_7H_3H_4H_5H_6H_and_white_2H_2S_2D_2C_6H() {
     //given
-    String[] black = {"2H", "3H", "4H", "5H", "6H"};
+    String[] black = {"7H", "3H", "4H", "5H", "6H"};
     String[] white = {"2H", "2D", "2S", "2C", "6D"};
     //when
     PokerHand pokerHand = new PokerHand();
@@ -159,6 +159,19 @@ public class PokerHandTest {
     //given
     String[] black = {"3H", "3D", "3S", "3C", "6H"};
     String[] white = {"2H", "2D", "2S", "4C", "6D"};
+    //when
+    PokerHand pokerHand = new PokerHand();
+    String result = pokerHand.play(black, white);
+
+    //then
+    assertEquals(result, "black wins");
+  }
+
+  @Test
+  public void should_return_black_wins_when_play_given_black_2H_3H_9H_5H_6H_and_white_2C_3H_4S_8C_AH() {
+    //given
+    String[] black = {"2H", "3H", "9H", "5H", "6H"};
+    String[] white = {"2C", "3D", "4S", "8C", "AH"};
     //when
     PokerHand pokerHand = new PokerHand();
     String result = pokerHand.play(black, white);

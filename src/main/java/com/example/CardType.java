@@ -5,6 +5,7 @@ public enum CardType {
   STRAIGHT_FLUSH("Straight flush", 9),
   FOUR_OF_A_KIND("Four of a kind", 8),
   FULL_HOUSE("Full House", 7),
+  FLUSH("Flush", 6),
   HIGHT_CARD("Hight card", 1);
 
   private String typeName;
