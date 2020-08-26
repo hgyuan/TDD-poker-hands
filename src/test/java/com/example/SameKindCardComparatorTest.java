@@ -2,8 +2,8 @@ package com.example;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
 import static com.example.Constant.*;
+import static org.testng.Assert.assertEquals;
 
 public class SameKindCardComparatorTest {
 
@@ -75,6 +75,20 @@ public class SameKindCardComparatorTest {
 
     //then
     assertEquals(result, TIE);
+  }
+
+  @Test
+  public void should_return_white_wins_when_compare_given_card_type_two_pairs_and_black_card_values_2_2_4_4_5_and_white_card_values_2_2_4_4_6() {
+    //given
+    int[] blackCardValues = {2, 2, 4, 4, 5};
+    int[] whiteCardValues = {2, 2, 4, 4, 6};
+    CardType cardType = CardType.TWO_PAIRS;
+    //when
+    SameKindCardComparator sameKindCardComparator = new SameKindCardComparator();
+    String result = sameKindCardComparator.compare(cardType, blackCardValues, whiteCardValues);
+
+    //then
+    assertEquals(result, WHITE_WINS);
   }
 
 }

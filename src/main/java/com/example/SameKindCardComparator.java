@@ -36,7 +36,7 @@ public class SameKindCardComparator {
     } else if (blackCardValue[1] < whiteCardValue[1]) {
       return WHITE_WINS;
     }
-    return TIE;
+    return defaultCompare(blackCardValue, whiteCardValue);
   }
 
   private String defaultCompare(int[] blackCardValue, int[] whiteCardValue) {
