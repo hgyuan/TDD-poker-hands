@@ -26,7 +26,7 @@ public class PokerHand {
         return "white wins";
       }
     }
-    return "";
+    return "tie";
   }
 
   private int[] convertCardValueToNumber(String[] card) {
