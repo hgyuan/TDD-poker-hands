@@ -105,6 +105,7 @@ public class CardTypeDetector {
   }
 
   private boolean isPair(String[] card) {
-    return Arrays.stream(card).distinct().count() == 4;
+    int[] cardValues = CardConverter.convertCardValueToNumber(card);
+    return Arrays.stream(cardValues).distinct().count() == 4;
   }
 }

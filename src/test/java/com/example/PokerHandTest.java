@@ -390,7 +390,7 @@ public class PokerHandTest {
   }
 
   @Test
-  public void should_return_black_wins_when_play_given_black_3H_3S_7C_6H_5H_and_white_2C_2D_4S_6D_7D() {
+  public void should_return_black_wins_when_play_given_black_3H_3S_7C_6H_5H_and_white_2C_2D_4S_6D_8D() {
     //given
     String[] black = {"3H", "3S", "7C", "6H", "5H"};
     String[] white = {"2C", "2D", "4S", "6D", "8D"};
@@ -403,3 +403,4 @@ public class PokerHandTest {
   }
 
 }
+
