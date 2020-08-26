@@ -12,6 +12,8 @@ public class SameKindCardComparator {
         return fourOfAKindOrFullHouseOrThreeOfAKindCompare(blackCardValue, whiteCardValue);
       case TWO_PAIRS:
         return twoPairsCompare(blackCardValue, whiteCardValue);
+      case PAIR:
+        return pairsCompare(blackCardValue, whiteCardValue);
       default:
         return defaultCompare(blackCardValue, whiteCardValue);
 
@@ -37,6 +39,25 @@ public class SameKindCardComparator {
       return WHITE_WINS;
     }
     return defaultCompare(blackCardValue, whiteCardValue);
+  }
+
+  private String pairsCompare(int[] blackCardValue, int[] whiteCardValue) {
+    if (getPairNumber(blackCardValue) > getPairNumber(whiteCardValue)) {
+      return BLACK_WINS;
+    } else if (getPairNumber(blackCardValue) < getPairNumber(whiteCardValue)) {
+      return WHITE_WINS;
+    }
+    return TIE;
+  }
+
+  private int getPairNumber(int[] cardValue) {
+    int pairNumber = 0;
+    for (int i = 1; i < 5; i++) {
+      if (cardValue[i] == cardValue[i - 1]) {
+        pairNumber = cardValue[i];
+      }
+    }
+    return pairNumber;
   }
 
   private String defaultCompare(int[] blackCardValue, int[] whiteCardValue) {
