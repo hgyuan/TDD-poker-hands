@@ -9,6 +9,8 @@ public class DetectCardType {
       return CardType.STRAIGHT_FLUSH;
     } else if (isFourOfAKind(card)) {
       return CardType.FOUR_OF_A_KIND;
+    } else if (isFullHouse(card)){
+      return CardType.FULL_HOUSE;
     }
     return CardType.HIGHT_CARD;
   }
@@ -28,5 +30,10 @@ public class DetectCardType {
   private boolean isFourOfAKind(String[] card) {
     int[] cardValues = CardConvertor.convertCardValueToNumber(card);
     return Arrays.stream(cardValues).distinct().count() == 2;
+  }
+
+  private boolean isFullHouse(String[] card){
+    int[] cardValues = CardConvertor.convertCardValueToNumber(card);
+    return Arrays.stream(cardValues).distinct().count() == 3;
   }
 }
