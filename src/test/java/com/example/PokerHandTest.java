@@ -2,8 +2,8 @@ package com.example;
 
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
 import static com.example.Constant.*;
+import static org.testng.Assert.assertEquals;
 
 public class PokerHandTest {
 
@@ -426,6 +426,19 @@ public class PokerHandTest {
 
     //then
     assertEquals(result, TIE);
+  }
+
+  @Test
+  public void should_return_white_wins_when_play_given_black_3H_3S_7C_6H_5H_and_white_3C_3D_8D_6D_5D() {
+    //given
+    String[] black = {"3H", "3S", "7C", "6H", "5H"};
+    String[] white = {"3C", "3D", "8D", "6D", "5D"};
+    //when
+    PokerHand pokerHand = new PokerHand();
+    String result = pokerHand.play(black, white);
+
+    //then
+    assertEquals(result, WHITE_WINS);
   }
 
 }
