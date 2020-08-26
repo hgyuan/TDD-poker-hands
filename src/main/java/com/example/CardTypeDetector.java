@@ -17,10 +17,12 @@ public class CardTypeDetector {
       return CardType.FLUSH;
     } else if (isStraight(card)) {
       return CardType.STRAIGHT;
-    } else if (isThreeOfAKind(card)){
+    } else if (isThreeOfAKind(card)) {
       return CardType.THREE_OF_A_KIND;
-    } else if (isTwoPairs(card)){
+    } else if (isTwoPairs(card)) {
       return CardType.TWO_PAIRS;
+    } else if (isPair(card)) {
+      return CardType.PAIR;
     }
     return CardType.HIGH_CARD;
   }
@@ -85,7 +87,7 @@ public class CardTypeDetector {
     return false;
   }
 
-  private boolean isTwoPairs(String[] card){
+  private boolean isTwoPairs(String[] card) {
     int[] cardValues = CardConverter.convertCardValueToNumber(card);
     Map<Integer, Integer> countMap = new HashMap<>();
     int countPairs = 0;
@@ -95,10 +97,14 @@ public class CardTypeDetector {
       } else if (!countMap.containsKey(cardValue)) {
         countMap.put(cardValue, 1);
       }
-      if (countMap.get(cardValue) == 2){
+      if (countMap.get(cardValue) == 2) {
         countPairs++;
       }
     }
     return countPairs == 2;
+  }
+
+  private boolean isPair(String[] card) {
+    return Arrays.stream(card).distinct().count() == 4;
   }
 }

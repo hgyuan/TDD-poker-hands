@@ -9,6 +9,7 @@ public enum CardType {
   STRAIGHT("Straight", 5),
   THREE_OF_A_KIND("Three of a Kind", 4),
   TWO_PAIRS("Two Pairs", 3),
+  PAIR("Pair",2),
   HIGH_CARD("High card", 1);
 
   private String typeName;
