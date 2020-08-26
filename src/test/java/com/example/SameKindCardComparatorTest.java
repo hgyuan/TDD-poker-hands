@@ -105,4 +105,18 @@ public class SameKindCardComparatorTest {
     assertEquals(result, BLACK_WINS);
   }
 
+  @Test
+  public void should_return_tie_when_compare_given_card_type_pair_and_black_card_values_3_3_4_5_6_and_white_card_values_3_3_4_5_6_() {
+    //given
+    int[] blackCardValues = {3, 3, 4, 5, 6};
+    int[] whiteCardValues = {3, 3, 4, 5, 6};
+    CardType cardType = CardType.PAIR;
+    //when
+    SameKindCardComparator sameKindCardComparator = new SameKindCardComparator();
+    String result = sameKindCardComparator.compare(cardType, blackCardValues, whiteCardValues);
+
+    //then
+    assertEquals(result, TIE);
+  }
+
 }
