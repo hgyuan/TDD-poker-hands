@@ -11,7 +11,7 @@ public class CardConvertor {
     initMap();
   }
 
-  public CardConvertor(){
+  public CardConvertor() {
 
   }
 

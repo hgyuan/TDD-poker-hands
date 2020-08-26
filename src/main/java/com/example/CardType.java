@@ -8,7 +8,8 @@ public enum CardType {
 
   private String typeName;
   private Integer typeNumber;
-  private CardType(String typeName, Integer typeNumber){
+
+  private CardType(String typeName, Integer typeNumber) {
     this.typeName = typeName;
     this.typeNumber = typeNumber;
   }

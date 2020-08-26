@@ -16,9 +16,9 @@ public class PokerHand {
     CardType blackCardType = detectCardType.detect(black);
     CardType whiteCardType = detectCardType.detect(white);
 
-    if(blackCardType.getTypeNumber() > whiteCardType.getTypeNumber()){
+    if (blackCardType.getTypeNumber() > whiteCardType.getTypeNumber()) {
       return "black wins";
-    }else if (blackCardType.getTypeNumber() < whiteCardType.getTypeNumber()){
+    } else if (blackCardType.getTypeNumber() < whiteCardType.getTypeNumber()) {
       return "white wins";
     }
 

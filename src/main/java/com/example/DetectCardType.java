@@ -20,9 +20,6 @@ public class DetectCardType {
       }
     }
     Character[] cardSuit = CardConvertor.convertCardSuitToChar(card);
-    if (Arrays.stream(cardSuit).distinct().count() != 1) {
-      return false;
-    }
-    return true;
+    return Arrays.stream(cardSuit).distinct().count() == 1;
   }
 }
