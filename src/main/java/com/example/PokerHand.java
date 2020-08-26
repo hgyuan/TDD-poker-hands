@@ -8,33 +8,37 @@ public class PokerHand {
 
   private Map<Character, Integer> map;
 
-  public PokerHand(){
+  public PokerHand() {
     initMap();
   }
 
-  public String play(String[] black, String[] white){
+  public String play(String[] black, String[] white) {
     int[] blackNumbers = convertCardValueToNumber(black);
     int[] whiteNumbers = convertCardValueToNumber(white);
 
     Arrays.sort(blackNumbers);
     Arrays.sort(whiteNumbers);
 
-    if (blackNumbers[4] > whiteNumbers[4]){
-      return "black wins";
+    for (int i = 4; i >= 0; i--) {
+      if (blackNumbers[i] > whiteNumbers[i]) {
+        return "black wins";
+      } else if (blackNumbers[i] < whiteNumbers[i]) {
+        return "white wins";
+      }
     }
-    return "white wins";
+    return "";
   }
 
   private int[] convertCardValueToNumber(String[] card) {
     int[] numbers = new int[5];
-    for(int i=0; i<5; i++){
+    for (int i = 0; i < 5; i++) {
       char cardValue = card[i].charAt(0);
       numbers[i] = map.get(cardValue);
     }
     return numbers;
   }
 
-  private void initMap(){
+  private void initMap() {
     map = new HashMap<Character, Integer>();
     map.put('1', 1);
     map.put('2', 2);
