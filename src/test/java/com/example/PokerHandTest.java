@@ -362,4 +362,5 @@ public class PokerHandTest {
     //then
     assertEquals(result, BLACK_WINS);
   }
+
 }
